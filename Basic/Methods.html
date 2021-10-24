@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="jame">
+            <input name="field" v-model="field" />
+            <p>The Resault is: {{field}} </p>
+            <button type="button" @click="modified">Click Me!!</button>
+        </div>
+
+        <script>
+            var app = new Vue ({
+                el:'#jame',
+                data: {
+                    field:'',
+                },
+                methods: {
+                    modified: function() {
+                        this.field += '*';
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

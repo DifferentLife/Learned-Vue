@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="jame" class="bg-blue-300 flex flex-col justify-center items-center h-screen w-full text-sm">
+            <p class="text-xs mb-8">0-5 Good; 6-8 Waring 9-10 Danger</p>
+            <p>Status Current {{status}} </p>
+
+            <div v-if="status >= 0 && status <= 5" class="w-32 h-20 flex justify-center items-center bg-green-200 text-center py-2">
+                Good
+            </div>
+            <div v-if="status >= 6 && status <= 8" class="w-32 h-20 flex justify-center items-center bg-orange-200 text-center py-2">
+                Waring
+            </div>
+            <div v-if="status >= 9 && status <= 10" class="w-32 h-20 flex justify-center items-center bg-red-200 text-center py-2">
+                Danger
+            </div>
+
+            <div class="text-xl mt-4">
+                <button v-if="status > 0" class="px-3 border rounded" @click.prevent="decrement">-</button>
+                <button v-if="status < 10" class="px-3 border rounded" @click.prevent="inccrement">+</button>
+            </div>
+        </div>
+        <script>
+            var app = new Vue ({
+                el: '#jame',
+                data: {
+                    status: 0,
+                },
+                methods: {
+                    inccrement: function() {
+                        if(this.status >= 10)
+                            return;
+                        this.status++;
+                    },
+                    decrement: function() {
+                        if(this.status <= 0)
+                            return;
+                        this.status--;
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

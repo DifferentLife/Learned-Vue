@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="jame" class="bg-blue-300 flex flex-col justify-center items-center h-screen w-full text-sm">
+            <div v-if="box < 19" class="w-20 h-20 bg-red-300">&nbsp;</div>
+            <div v-else-if="box > 25" class="w-20 h-20 bg-pink-300">&nbsp;</div>
+            <div v-else class="w-20 h-20 bg-gray-300">&nbsp;</div>
+        </div>
+        <script>
+            var app = new Vue ({
+                el: '#jame',
+                data: {
+                    box: 18,
+                }
+            });
+        </script>
+    </body>
+</html>

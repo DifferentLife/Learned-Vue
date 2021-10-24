@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <input name="field" v-model='field' />
+            Resault is : {{exclamation}}
+        </div>
+        <script>
+            var app = new Vue ({
+                el:'#app',
+                data: {
+                    field:''
+                },
+                computed: {
+                    exclamation: function() {
+                        return this.field + '!!';
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

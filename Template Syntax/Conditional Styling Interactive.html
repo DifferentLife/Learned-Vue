@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <style>
+            .red {color: red;}
+            .big {font-size: 100px;}
+            .underline {text-decoration: underline;}
+        </style>
+    </head>
+    <body>
+        <div id="jame" class="bg-blue-300 h-screen w-full flex flex-col justify-center items-center text-sm relative">
+            <div :class=" {red: 5 > 1} ">Text</div>
+            <div :style=" {'font-size': size} ">Text</div>
+            <div :class=" [toggle ? 'underline red' : ''] ">Text</div>
+            <div :style="[textColor]">Text</div>
+            <div :class=" [toggle ? 'red' : 'big'] " class="underline">Text</div>
+        </div>
+        <script>
+            var app = new Vue({
+                el: '#jame',
+                data: {
+                    size: 25,
+                    toggle: false,
+                    textColor: {
+                        color: 'orange'
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

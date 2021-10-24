@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="jame">
+            <input name="field" v-model="myProfile" />
+            <p>Resault FirstName is: {{firstName}} </p>
+            <p>Resault lastName is: {{lastName}} </p>
+            <p>Resault contact is: {{contact}} </p>
+        </div>
+
+        <script>
+            var app = new Vue ({
+                el:'#jame',
+                data: {                    
+                    field:'',
+                    firstName:'',
+                    lastName:'',
+                    contact:''
+                },
+                computed: {
+                    myProfile: {
+                        get: function() {
+                            return this.firstName + ' ' + this.lastName +
+                            ' ' + this.contact;
+                        },
+                        set: function(newValues) {
+                            var names = newValues.split(' ');
+                            this.firstName = names[0];
+                            this.lastName = names[1];
+                            this.contact = names[2];
+                        }
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

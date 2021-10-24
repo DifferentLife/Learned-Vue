@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="jame" class="bg-blue-300 flex flex-col items-center h-screen w-full text-sm">
+            <div> {{example}} </div>
+            <div v-noce> {{onlyOnce}} </div>
+            <div v-html="sampleHtml"></div>
+            <div v-text="text"></div>
+            <div> {{(answer) ? 'Yes' : 'No'}} </div>
+            <div v-text="'My friend is '+ age +' years old.'"></div>
+            <div> {{3.14 * Math.pow(circleRadius, 2)}} </div>
+            <div v-bind:title="'Hello ' + explain"></div>
+            <div></div>
+            <div></div>
+        </div>
+        <script>
+            var app = new Vue ({
+                el: '#jame',
+                data: {
+                    example: 'Learning Never Exhausts The Mind.',
+                    onlyOnce: 'I will not update!',
+                    sampleHtml: '<ul><li>Item 1</li><li>Item 2</li></ul>',
+                    text: 'Another way to output text!',
+                    answer: true,
+                    age: 9,
+                    circleRadius: 10,
+                    explain: 'Here is some text that explains this div.'
+                }
+            });
+        </script>
+    </body>
+</html>

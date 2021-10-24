@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="jame">
+            <h1>Contact Form</h1>
+            <form method="post" action="#">
+                <div>
+                    <label for="name">Name</label>
+                    <input name="name" id="name" v-model="name" />  
+                </div>
+                <div>
+                    <label for="sex">Sex</label>
+                <input type="radio" name="like" id="like">male
+                <input type="radio" name="like" id="don'tlike">female
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input name="email" id="email" v-model="email" />
+                </div>
+                <div>
+                    <label for="message">Messages</label>
+                    <textarea name="message" id="message" v-model= "message"></textarea>
+                </div>
+            </form>
+
+            <h2>From Detail</h2>
+            <P><strong>Name:</strong> {{name}} </P>
+            <P><strong>Email:</strong> {{email}} </P>
+            <P><strong>Messages:</strong> {{message}} </P>
+        </div>
+
+        <script>
+            var app = new Vue ({
+                el:'#jame',
+                data: {
+                    name:'',
+                    email:'',
+                    message:''
+                }
+            });
+        </script>
+    </body>
+</html>

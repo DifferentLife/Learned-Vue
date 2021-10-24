@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            {{reversedMessage}}
+            <a v-bind:href='link'> {{linktext}} </a>
+        </div>
+        <script>
+            var app = new Vue ({
+                el:'#app',
+                data: {
+                    message:'Learn Vue',
+                    link:'https://scrimba.com/learn/vue/v-model-cgKM3ahG',
+                    linktext:'Vue js'
+                },
+                computed: {
+                    exclamation: function() {
+                        return this.message + '!!!';
+                    },
+                    reversedMessage: function() {
+                        return this.exclamation.split('').reverse('').join('')
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="jame" class="bg-blue-300 h-screen w-full flex flex-col pt-12 items-center text-sm relative">
+            <h1 class="font-bold mb-4 uppercase">My Todo List</h1>
+            <div class="mb-3">
+                <input v-model="item" />
+                <button class="px-1 border rounded" @click.prevent="addItems">Add</button>
+            </div>
+            <div>
+                <ul>
+                    <li v-for="item in list"> {{item}} </li>
+                </ul>
+            </div>
+        </div>
+        <script>
+            var app = new Vue ({
+                el: '#jame',
+                data: {
+                    item: '',
+                    list: [ ]
+                },
+                methods: {
+                    addItems: function() {
+                        this.list.push(this.item);
+                        this.item = '';
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

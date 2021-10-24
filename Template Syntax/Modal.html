@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="jame" class="bg-blue-300 flex flex-col justify-center items-center h-screen w-full text-sm">
+            <div v-if="modal" class="absolute bg-blue-200 top-0 w-full text-center py-2">
+                Hi it is the Modal. 
+                <button @click.prevent="modal=false">X</button>
+            </div>
+            <button @click.prevent="modal = !modal">
+                {{(modal) ? 'close' : 'Open'}} Modal
+            </button>
+        </div>
+        <script>
+            var app = new Vue ({
+                el: '#jame',
+                data: {
+                    modal: false,
+                }
+            });
+        </script>
+    </body>
+</html>

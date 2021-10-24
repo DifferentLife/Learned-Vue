@@ -1,0 +1,7 @@
+//Document
+https://cdn.jsdelivr.net/npm/vue/dist/vue.js
+//stylesheet
+https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css
+//ex
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<link rel="stylesheet" href="index.css">

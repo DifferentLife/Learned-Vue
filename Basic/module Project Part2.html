@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div id="jame">
+            <h1>Contact Form</h1>
+            <p class="fontError"> {{error}} </p>
+            <form method="post" action="#">
+                <div>
+                    <label for="name">Name:</label>
+                    <input name="name" id="name" v-model="form.name" />
+                </div>
+                <div>
+                    <label for="sex">Sex:</label>
+                    <input type="radio" name="like" id="like" />male
+                    <input type="radio" name="like" id="don'tlike" />female
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input name="email" id="email" v-model="form.email" />
+                </div>
+                <div>
+                    <label for="message">Messages</label>
+                    <textarea name="message" id="message" v-model="form.message"></textarea>
+                </div>
+                <button @click.prevent="validateForm">Submit</button>
+            </form>
+            <h2>From Details</h2>
+            <p><strong>Name:</strong> {{form.name}} </p>
+            <p><strong>Email:</strong> {{form.email}} </p>
+            <p><strong>Messages:</strong> {{form.message}} </p>
+        </div>
+        <script>
+            var app = new Vue ({
+                el:'#jame',
+                data: {
+                    form: {
+                        name:'',
+                        email:'',
+                        message:'',
+                    },
+                    error:'',
+                },
+                methods: {
+                    validateForm: function() {
+                        if(this.form.name.length) {
+                            return this.error = 'From sent';
+                        } 
+                        return this.error = 'Invalid Form';
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

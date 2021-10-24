@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <style>
+            .danger {
+                color: crimson;
+                font-size: 200;
+            }
+            .active {
+                color: darkgreen;
+                font-size: 200;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="jame" class="bg-blue-300 h-screen w-full flex flex-col justify-center items-center text-sm relative">
+            <div :class=" [{active: isActive}] ">Text</div>
+        </div>
+        <script>
+            var app = new Vue({
+                el: '#jame',
+                data: {
+                    isActive: true,
+                    activeClass: 'active',
+                    errorClass: 'danger'
+                }
+            });
+        </script>
+    </body>
+</html>

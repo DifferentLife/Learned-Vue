@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="jame" class="bg-blue-300 h-screen w-full flex flex-col justify-center items-center text-sm relative">
+            <template v-for="items in list">
+                <p> {{items.name}} </p>
+                <p> {{items.age}} </p>
+            </template>
+        </div>
+        <script>
+            var app = new Vue ({
+                el: '#jame',
+                data: {
+                   list: [
+                       {name: 'John', age: 25},
+                       {name: 'Gon', age:28}
+                   ] 
+                }
+            });
+        </script>
+    </body>
+</html>
