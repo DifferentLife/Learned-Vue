@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../styles.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="jame">
+            <size-title text-size="25"> Vue Bootcamp </size-title>
+            <my-list :list=" {names: ['jame', 'Nam', 'Got']} ">My list of names.</my-list>
+            
+            <my-site>
+                <template v-slot:header>
+                    Hi jame
+                </template>
+                <template v-slot:body>
+                    Hi Nam
+                </template>
+                <template v-slot:footer>
+                    Good bye
+                </template>
+            </my-site>
+            
+        </div>
+        <script>
+            Vue.component('size-title', {
+                props: ['textSize'],
+                
+                template: '<div :style=" {fontSize: textSize + \'px\'} "><slot></slot></div>'
+            });
+            Vue.component('my-list', {
+                props: ['list'],
+
+                template: '<div><slot></slot> <ul><li v-for="item in list.names"> {{item}} </li></ul></div>'
+            });
+            Vue.component('my-site', {
+                template: '<div><header><slot name="header"></slot></header> <body><slot name="body"></slot></body> <footer><slot name="footer"></slot></footer> </div>'
+            });
+            
+            var app = new Vue({
+                el: '#jame',
+                data: {
+                    
+                }
+            });
+        </script>
+    </body>
+</html>

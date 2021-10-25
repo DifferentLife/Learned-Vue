@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../styles.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="jame">
+            <title-text>
+                My Slots
+
+                <template v-slot:jame>Hi Slots</template>
+            </title-text>
+        </div>
+        <script>
+            Vue.component('title-text', {
+                template: '<div> <h1><slot></slot></h1> <slot name="jame"></slot> </div>'
+            });
+
+            var app = new Vue({
+                el: '#jame',
+                data: {
+                    
+                }
+            });
+        </script>
+    </body>
+</html>
