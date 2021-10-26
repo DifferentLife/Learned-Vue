@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../styles.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="jame">
+            <div class="nav-wrapper">
+                <div class="logo">Vue</div>
+                <div class="flex">
+                    <div v-for="item in nav">
+                        <a href="item.link" 
+                        class="link-item" 
+                        :class=" [(item.sublinksModal ? 'link-active' : '')] "
+                        @click.prevent="toggleSubModal(item)"> 
+                        {{item.title}} </a>
+                        <template v-if="item.Sublinks && item.sublinksModal">
+                            <div class="sublinks">
+                                <a v-for="Sublinks in item.Sublinks" 
+                                href="item.Sublinks" 
+                                class="link-item"> 
+                                {{Sublinks.title}} </a>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+            <div class="body-text">
+                Hi, I like Programming
+            </div>
+        </div>
+        <script>
+            var app = new Vue({
+                el: '#jame',
+                data: {
+                    nav: [
+                        {title: 'Home', link: '#home'},
+                        {title: 'About', link: '#about'},
+                        {title: 'Services', link: '#services', Sublinks: [
+                            {title: 'AUdio', link: '#audio'},
+                            {title: 'Vedio', link: '#vedio'},
+                            {title: 'Fan', link: '#fan'},
+                        ], sublinksModal: false },
+                    ]
+                },
+                methods: {
+                    toggleSubModal: function(item) {
+                        item.sublinksModal = !item.sublinksModal; 
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

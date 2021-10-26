@@ -6,6 +6,6 @@ Vue.component('test-component', TestComponent);
 new Vue({
     el: '#jame',
     data: {
-        
+        messagge: 'Demo'
     }
 });
